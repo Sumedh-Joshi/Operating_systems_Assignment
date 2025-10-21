@@ -42,24 +42,24 @@ pkill producer; pkill consumer
 
 ### Explanation
 1. Shared Memory (/mytable)
-- Stores a small buffer of size 2 and a counter count.
-- Both producer and consumer processes access this memory to share items.
+    - Stores a small buffer of size 2 and a counter count.
+    - Both producer and consumer processes access this memory to share items.
 
 2. Producer Process
-- Generates items (integers starting from 1) and adds them to the buffer.
-- Waits if the buffer is full (count == 2).
-- Uses empty and mutex semaphores to ensure proper synchronization and mutual exclusion.
+    - Generates items (integers starting from 1) and adds them to the buffer.
+    - Waits if the buffer is full (count == 2).
+    - Uses empty and mutex semaphores to ensure proper synchronization and mutual exclusion.
 
 3. Consumer Process
-- Removes items from the buffer.
-- Waits if the buffer is empty (count == 0).
-- Uses full and mutex semaphores to ensure proper synchronization and mutual exclusion.
+    - Removes items from the buffer.
+    - Waits if the buffer is empty (count == 0).
+    - Uses full and mutex semaphores to ensure proper synchronization and mutual exclusion.
 
 4. Semaphores
 
-- mutex: Ensures mutual exclusion when accessing the buffer.
-- empty: Tracks the number of empty slots in the buffer.
-- full: Tracks the number of items available for consumption.
+    - mutex: Ensures mutual exclusion when accessing the buffer.
+    - empty: Tracks the number of empty slots in the buffer.
+    - full: Tracks the number of items available for consumption.
 
 5. Cleanup
-- A separate program removes shared memory and semaphores to avoid resource leaks.
+    - A separate program removes shared memory and semaphores to avoid resource leaks.
