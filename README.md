@@ -27,16 +27,16 @@ pkill producer; pkill consumer
 ```
 
 ### Output code 
-Produced: 1 | Count: 1
-Consumed: 1 | Count: 0
-Produced: 2 | Count: 1
-Consumed: 2 | Count: 0
-Produced: 3 | Count: 1
-Produced: 4 | Count: 2
-Consumed: 4 | Count: 1
-Produced: 5 | Count: 2
-Consumed: 5 | Count: 1
-Produced: 6 | Count: 2
+Produced: 1 | Count: 1  
+Consumed: 1 | Count: 0  
+Produced: 2 | Count: 1  
+Consumed: 2 | Count: 0  
+Produced: 3 | Count: 1  
+Produced: 4 | Count: 2  
+Consumed: 4 | Count: 1  
+Produced: 5 | Count: 2  
+Consumed: 5 | Count: 1  
+Produced: 6 | Count: 2  
 pkill producer; pkill consumer
 
 
