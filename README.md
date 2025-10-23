@@ -14,7 +14,7 @@ g++ cleanup.cpp -lrt -o cleanup
 
 ### Run the programs:
 ```bash
-$ ./producer & ./consumer &
+./producer & ./consumer &
 ```
 
 ### To stop execution
@@ -41,7 +41,7 @@ pkill producer; pkill consumer
 
 
 ### Explanation
-1. Shared Memory (/mytable)
+1. Shared Memory
     - Stores a small buffer of size 2 and a counter count.
     - Both producer and consumer processes access this memory to share items.
 
