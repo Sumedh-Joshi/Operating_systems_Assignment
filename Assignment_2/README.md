@@ -1,11 +1,11 @@
-# Banker's Algorithm (C Implementation)
+# Banker's Algorithm (C++ Implementation)
 
 ## Overview
-This project implements the Banker's Algorithm for deadlock avoidance in C, targeting Linux/Unix. It reads a snapshot of processes, resource totals, allocation matrix and max matrix from an input file, computes the `Need` and `Available` vectors, and performs the safety check to determine whether the system is in a safe state; if so, it prints a safe sequence.
+This project implements the Banker's Algorithm for deadlock avoidance in C++, targeting Linux/Unix. It reads a snapshot of processes, resource totals, allocation matrix and max matrix from an input file, computes the `Need` and `Available` vectors, and performs the safety check to determine whether the system is in a safe state; if so, it prints a safe sequence.
 
-This implementation was written to satisfy Programming Assignment #2 requirements.
 
-## How Banker’s Algorithm works (brief)
+
+## How Banker’s Algorithm works 
 - `Available` = total resources - sum of allocated resources
 - `Need[i][j]` = `Max[i][j] - Allocation[i][j]`
 - Safety algorithm:
@@ -18,7 +18,11 @@ This implementation was written to satisfy Programming Assignment #2 requirement
 - `bankers.cpp` : Cpp source code
 - `input.txt` : sample input file 
 - `README.md` : Discription 
-- `screenshots/` : Screenshots of sample output
+- `screenshots` : Screenshots of sample output
+
+## Compliation steps
+1. g++ bankers.cpp -o bankers
+2.  ./bankers input.txt
 
 ## Input file format
 1. First line: `P R` (number of processes P and number of resource types R)
@@ -26,6 +30,22 @@ This implementation was written to satisfy Programming Assignment #2 requirement
 3. Next P lines: Allocation matrix, each line has R integers for process Pi
 4. Next P lines: Max matrix, each line has R integers for process Pi
 
+### Example input
+```
+5 3
+10 5 7
+0 1 0
+2 0 0
+3 0 2
+2 1 1
+0 0 2
+7 5 3
+3 2 2
+9 0 2
+2 2 2
+4 3 3
+
+```
 ## Example output
 ```
 Allocation matrix:
