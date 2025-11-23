@@ -15,10 +15,10 @@ This implementation was written to satisfy Programming Assignment #2 requirement
   - If all Finish[i] become true, system is in a safe state and the order found is a safe sequence.
 
 ## Files
-- `src/bankers.c` : C source code
-- `input/input.txt` : sample input file (format described below)
-- `README.md` : this file
-- `screenshots/` : optional screenshots of sample output
+- `bankers.cpp` : Cpp source code
+- `input.txt` : sample input file 
+- `README.md` : Discription 
+- `screenshots/` : Screenshots of sample output
 
 ## Input file format
 1. First line: `P R` (number of processes P and number of resource types R)
@@ -26,4 +26,31 @@ This implementation was written to satisfy Programming Assignment #2 requirement
 3. Next P lines: Allocation matrix, each line has R integers for process Pi
 4. Next P lines: Max matrix, each line has R integers for process Pi
 
-Example (sample file included):
+## Example output
+```
+Allocation matrix:
+P0: 0 1 0 
+P1: 2 0 0 
+P2: 3 0 2 
+P3: 2 1 1 
+P4: 0 0 2 
+
+Max matrix:
+P0: 7 5 3 
+P1: 3 2 2 
+P2: 9 0 2 
+P3: 2 2 2 
+P4: 4 3 3 
+
+Need matrix:
+P0: 7 4 3 
+P1: 1 2 2 
+P2: 6 0 0 
+P3: 0 1 1 
+P4: 4 3 1 
+
+Available: 3 3 2 
+
+System is in a SAFE state.
+Safe sequence: P1 -> P3 -> P4 -> P0 -> P2
+```
