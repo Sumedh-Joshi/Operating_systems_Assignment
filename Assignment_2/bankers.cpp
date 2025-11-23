@@ -24,18 +24,18 @@ int main(int argc, char* argv[]) {
     vector<vector<int>> maxm(P, vector<int>(R));
     vector<vector<int>> need(P, vector<int>(R));
 
-    // Read total resources
+
     for (int j = 0; j < R; j++) {
         fin >> total[j];
     }
 
-    // Read Allocation matrix
+
     for (int i = 0; i < P; i++) {
         for (int j = 0; j < R; j++)
             fin >> allocation[i][j];
     }
 
-    // Read Max matrix
+
     for (int i = 0; i < P; i++) {
         for (int j = 0; j < R; j++)
             fin >> maxm[i][j];
@@ -43,7 +43,7 @@ int main(int argc, char* argv[]) {
 
     fin.close();
 
-    // Compute Available = Total - Sum(Allocation column)
+
     for (int j = 0; j < R; j++) {
         int sum = 0;
         for (int i = 0; i < P; i++)
@@ -51,7 +51,6 @@ int main(int argc, char* argv[]) {
         available[j] = total[j] - sum;
     }
 
-    // Compute Need = Max - Allocation
     for (int i = 0; i < P; i++) {
         for (int j = 0; j < R; j++)
             need[i][j] = maxm[i][j] - allocation[i][j];
@@ -91,7 +90,6 @@ int main(int argc, char* argv[]) {
     for (int j = 0; j < R; j++) cout << available[j] << " ";
     cout << "\n\n";
 
-    // SAFETY ALGORITHM
     vector<int> work = available;
     vector<bool> finish(P, false);
     vector<int> safeSeq;
@@ -106,7 +104,7 @@ int main(int argc, char* argv[]) {
             if (!finish[i]) {
                 bool canRun = true;
 
-                // Check if Need <= Work
+
                 for (int j = 0; j < R; j++) {
                     if (need[i][j] > work[j]) {
                         canRun = false;
@@ -115,7 +113,7 @@ int main(int argc, char* argv[]) {
                 }
 
                 if (canRun) {
-                    // Pretend to allocate → release allocation later
+
                     for (int j = 0; j < R; j++)
                         work[j] += allocation[i][j];
 
@@ -128,7 +126,7 @@ int main(int argc, char* argv[]) {
 
     } while (foundProcess);
 
-    // Check if safe
+
     bool safe = true;
     for (bool f : finish) {
         if (!f) { safe = false; break; }
