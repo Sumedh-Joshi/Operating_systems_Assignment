@@ -74,3 +74,6 @@ Available: 3 3 2
 System is in a SAFE state.
 Safe sequence: P1 -> P3 -> P4 -> P0 -> P2
 ```
+
+## Answer to the question in doc
+Yes, the system is in a safe state.Using the Banker's safety algorithm, we can determine this because a sequence exists where all processes can acquire their maximum required resources and run to completion. First, we calculate the Need matrix (Need = Max - Allocation). Starting with Available resources of [3 2 2], we find that $P_1$ can run (Need [1 2 2]), followed by $P_3$ (Need [0 0 1]), then $P_0$ (Need [7 4 3]), then $P_2$ (Need [6 0 0]), and finally $P_4$ (Need [4 3 1]).A valid safe sequence is: <$P_1 ---> P_3 ---> P_0 ---> P_2 ---> P_4$>.
